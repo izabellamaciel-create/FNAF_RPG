@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>FNAF RPG — A Última Noite</title>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>FAZBEAR ARCHIVES</span>
+      </div>
+      <div class="top-actions">
+        <button id="music-btn" class="icon-btn" title="Ativar/desativar música">🔇 Música</button>
+        <button id="restart-btn" class="icon-btn">↻ Reiniciar</button>
+      </div>
+    </header>
+
+    <section id="start-screen" class="start-screen">
+      <div class="start-image-wrap">
+        <img src="assets/intro.jpg" alt="Introdução — FNAF RPG">
+        <div class="image-vignette"></div>
+      </div>
+      <div class="start-content">
+        <p class="eyebrow">ROLEPLAY INTERATIVO • PYTHON + HTML</p>
+        <h1>FNAF RPG<br><span>A ÚLTIMA NOITE</span></h1>
+        <p class="lead">Uma noite. Uma pizzaria vazia. E segredos que seu pai levou para o túmulo.</p>
+        <div class="start-meta">
+          <span>16 CENAS</span><span>•</span><span>ESCOLHAS</span><span>•</span><span>FINAIS MÚLTIPLOS</span>
+        </div>
+        <button id="start-btn" class="primary-btn">▶ COMEÇAR JOGO</button>
+        <p class="hint">Use os botões na tela para escolher seu caminho. A música começa depois do primeiro clique.</p>
+      </div>
+    </section>
+
+    <section id="game-screen" class="game-screen hidden">
+      <div class="scene-header">
+        <div>
+          <p id="scene-kicker" class="eyebrow">INTRODUÇÃO</p>
+          <h2 id="scene-title">A ÚLTIMA NOITE</h2>
+        </div>
+        <div class="scene-counter"><span id="scene-number">00</span> / 16</div>
+      </div>
+
+      <div class="progress"><div id="progress-fill"></div></div>
+
+      <div class="game-grid">
+        <aside class="sidebar">
+          <div class="panel status-panel">
+            <div class="panel-title">STATUS</div>
+            <div class="stat"><span>💰 Dinheiro</span><strong id="money">0</strong></div>
+            <div class="stat"><span>🧠 Coragem</span><strong id="courage">0</strong></div>
+            <div class="stat"><span>📞 Mike</span><strong id="mike">0</strong></div>
+            <div class="stat"><span>🗝️ Chave</span><strong id="key">NÃO</strong></div>
+            <div class="stat"><span>📼 Fita</span><strong id="tape">NÃO</strong></div>
+          </div>
+          <div class="panel inventory-panel">
+            <div class="panel-title">ARQUIVO</div>
+            <p id="archive-text">Nenhuma pista registrada.</p>
+          </div>
+        </aside>
+
+        <section class="story-card">
+          <div class="art-frame">
+            <img id="scene-image" src="assets/intro.jpg" alt="Cena atual">
+            <div class="art-overlay"></div>
+            <div id="time-label" class="time-label">23:47</div>
+          </div>
+          <div class="story-content">
+            <div id="story-text" class="story-text"></div>
+            <div id="choice-area" class="choice-area"></div>
+            <button id="continue-btn" class="continue-btn hidden">CONTINUAR →</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer>
+      <span>FNAF RPG — A ÚLTIMA NOITE</span>
+      <span>Projeto escolar • HTML + PyScript</span>
+    </footer>
+  </main>
+
+  <audio id="music" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+  <script type="py" src="main.py"></script>
+</body>
+</html>
